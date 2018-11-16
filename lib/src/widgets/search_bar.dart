@@ -15,11 +15,11 @@ class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(15.0),
       margin: EdgeInsets.only(top:25.0,left: 25.0,right: 25.0),
-      height: MediaQuery.of(context).size.height/4.2,
+      height: MediaQuery.of(context).size.height/4.7,
       decoration:BoxDecoration(
-        color: Colors.deepPurple,
+        color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10.0))
       ) ,
       child:Column(
@@ -27,7 +27,7 @@ class _SearchBarState extends State<SearchBar> {
           Container(margin: EdgeInsets.only(top:0.0),),
           Theme(
             data:ThemeData(
-              hintColor: Colors.white
+              hintColor: Colors.blueGrey,
             ),
             child:TextField(
               keyboardType: TextInputType.number,
@@ -35,17 +35,11 @@ class _SearchBarState extends State<SearchBar> {
                 fontFamily: 'monospace',
                 fontSize: 20.0,
                 letterSpacing: 1.5,
-                color: Colors.white
+                color: Colors.blueGrey
               ),
               decoration: InputDecoration(
-                border: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 10.0,
-                    color: Colors.white
-                  )
-                ),
                 hintStyle: TextStyle(
-                  color:Colors.white
+                  color:Colors.black
                 ) ,
                 hintText: 'Enter amount',
               ),
@@ -53,15 +47,15 @@ class _SearchBarState extends State<SearchBar> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-           children:<Widget>[
+            children:<Widget>[
              Text(
                'USD',
                style: TextStyle(
-                 color: Colors.white
+                color: Colors.blueGrey
                ),
              ),
              Radio(
-              activeColor: Colors.white,
+              activeColor:Colors.green,
               groupValue:_radioValue,
               onChanged:(value){currencyUpdate(value);},
               value:0
@@ -69,11 +63,11 @@ class _SearchBarState extends State<SearchBar> {
             Text(
               'KES',
               style: TextStyle(
-                 color: Colors.white
+                 color: Colors.blueGrey
                ),
             ),
             Radio(
-              activeColor: Colors.white,
+              activeColor:Colors.green,
               groupValue:_radioValue,
               onChanged:(value){currencyUpdate(value);},
               value:1
