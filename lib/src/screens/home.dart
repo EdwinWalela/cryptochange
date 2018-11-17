@@ -8,15 +8,12 @@ class HomeScreen extends StatelessWidget {
     return SingleChildScrollView(
       physics: AlwaysScrollableScrollPhysics(),
       child:Container(
-        height: (MediaQuery.of(context).size.height)*4 ,
+        height: MediaQuery.of(context).size.height*1.4,
         child:Column(
           children: <Widget>[
             SearchBar(),
             Container(margin: EdgeInsets.only(top:50.0),),
-            Flex(
-              direction: Axis.vertical,
-              children:[Results()]
-            )
+            Results()
           ],
         ),
       )

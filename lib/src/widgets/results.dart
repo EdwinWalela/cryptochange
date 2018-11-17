@@ -19,7 +19,7 @@ class Results extends StatelessWidget {
           for(int i = 0; i < snapshot.data.length;i++){
             coins.add(resultItem(snapshot.data[i].name, snapshot.data[i].value));
           }
-          return ListView(children:coins,);
+          return Column(children:coins);
         }
       },
     );

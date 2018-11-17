@@ -25,13 +25,7 @@ class ResultItem extends StatelessWidget {
   }
 
   coinValue(BuildContext context){
-    return StreamBuilder(
-      stream:bloc.amount,
-      builder:(BuildContext context, AsyncSnapshot snapshot){
-        if(!snapshot.hasData){
-        return Text('Loading...');
-        }else{
-        return Column(
+     return Column(
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(right:10.0,top:12.0),
@@ -42,13 +36,13 @@ class ResultItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(margin: EdgeInsets.only(top:10.0),),
+              //Container(margin: EdgeInsets.only(top:10.0),),
               Container(
                 margin: EdgeInsets.only(left:15.0),
                 child:Text(
                  '${value.toStringAsFixed(7)}',
                   style: TextStyle(
-                    fontSize: 30.0,
+                    fontSize: double.parse(value.toStringAsFixed(7)) > 50 ? 20.0 : 30.0,
                     color:Colors.black
                   ),
                 )
@@ -56,9 +50,6 @@ class ResultItem extends StatelessWidget {
             ],
         );
         }
-      }
-    );
-  }
 
   coinPercent(BuildContext context ){
     double val = -0.00719;

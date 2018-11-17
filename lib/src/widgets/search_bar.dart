@@ -67,18 +67,18 @@ class _SearchBarState extends State<SearchBar> {
               onChanged:(value){currencyUpdate(value);},
               value:0
             ),
-            Text(
-              'KES',
-              style: TextStyle(
-                 color: Colors.blueGrey
-               ),
-            ),
-            Radio(
-              activeColor:Colors.green,
-              groupValue:_radioValue,
-              onChanged:(value){currencyUpdate(value);},
-              value:1
-            ),
+            // Text(
+            //   'KES',
+            //   style: TextStyle(
+            //      color: Colors.blueGrey
+            //    ),
+            // ),
+            // Radio(
+            //   activeColor:Colors.green,
+            //   groupValue:_radioValue,
+            //   onChanged:(value){currencyUpdate(value);},
+            //   value:1
+            // ),
            ]
           )
         ],
