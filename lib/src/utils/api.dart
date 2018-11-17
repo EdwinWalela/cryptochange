@@ -15,7 +15,7 @@ class API{
       double value = data['RAW']['USD'][cryptos[i]]['PRICE'] * amount;
       String coin = data['RAW']['USD'][cryptos[i]]['TOSYMBOL'];
       double change = data['RAW']['USD'][cryptos[i]]['CHANGEDAY'];
-      var newCoin = Crypto.fromJson(coin, value, change, '');
+      var newCoin = Crypto.fromJson(coin, value, change);
       coins.add(newCoin);
     }
      return coins;

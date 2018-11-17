@@ -4,9 +4,9 @@ import '../utils/bloc.dart';
 class ResultItem extends StatelessWidget {
   
   String name;
-  double value;
+  double value,change;
 
-  ResultItem(this.name,this.value);
+  ResultItem(this.name,this.value,this.change);
   
   coinIcon(BuildContext context){
     return StreamBuilder(
@@ -14,21 +14,21 @@ class ResultItem extends StatelessWidget {
       builder:(BuildContext context,AsyncSnapshot snapshot){
         return Container(
           margin: EdgeInsets.only(left:10.0 ),
-          child : Icon(
-            Icons.monetization_on,
-            color: Colors.black,
-            size: 50.0,
-          )
+          child : Image.asset(
+            'assets/images/${this.name.toLowerCase()}.png',
+            height: 50.0,
+            width:50.0,
+            )
         );
       }
     );
   }
 
   coinValue(BuildContext context){
-     return Column(
+     return Row(
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(right:10.0,top:12.0),
+                margin: EdgeInsets.only(left:10.0),
                 child:Text(
                   '$name',
                   style: TextStyle(
@@ -36,34 +36,31 @@ class ResultItem extends StatelessWidget {
                   ),
                 ),
               ),
-              //Container(margin: EdgeInsets.only(top:10.0),),
+              Container(margin: EdgeInsets.only(top:10.0),),
               Container(
                 margin: EdgeInsets.only(left:15.0),
                 child:Text(
                  '${value.toStringAsFixed(7)}',
                   style: TextStyle(
-                    fontSize: double.parse(value.toStringAsFixed(7)) > 50 ? 20.0 : 30.0,
+                    fontSize: double.parse(value.toStringAsFixed(7)) > 50 ? 20.0 : 25.0,
                     color:Colors.black
                   ),
                 )
-              )
+              ),
+              Container(
+                margin: EdgeInsets.only(left:15.0),
+                child:Text(
+                  double.parse(change.toStringAsFixed(5)) > 0 ? '+${change.toStringAsFixed(5)}' :'-${change.toStringAsFixed(5)}' ,
+                  style: TextStyle(
+                    color: double.parse(change.toStringAsFixed(5)) > 0 ? Colors.green : Colors.red
+                  ),
+                ),
+              ),
             ],
-        );
+          );
         }
 
-  coinPercent(BuildContext context ){
-    double val = -0.00719;
-    return Container(
-      margin: EdgeInsets.only(bottom: 60.0,left:50.0),
-      alignment: Alignment.centerRight,
-      child: Text(
-        val < 0 ? '-$val': '+$val',
-        style: TextStyle(
-          color:val < 0 ? Colors.red : Colors.green
-          ),
-      )
-    );
-  }
+
  @override
   Widget build(BuildContext context) {
     return Container(
@@ -75,7 +72,7 @@ class ResultItem extends StatelessWidget {
         color: Colors.white
       ),
       child:Container(
-        padding: EdgeInsets.only(top:10.0),
+        padding: EdgeInsets.only(top:5.0),
         child: Row(
           children: <Widget>[
             coinIcon(context),

@@ -4,8 +4,8 @@ import '../utils/bloc.dart';
 
 class Results extends StatelessWidget {
 
-  Widget resultItem(String name,double value){
-    return ResultItem(name,value);
+  Widget resultItem(String name,double value,double change){
+    return ResultItem(name,value,change);
   }
 
   listBuilder(BuildContext context){
@@ -17,7 +17,7 @@ class Results extends StatelessWidget {
         }else{
           List<Widget> coins = [];
           for(int i = 0; i < snapshot.data.length;i++){
-            coins.add(resultItem(snapshot.data[i].name, snapshot.data[i].value));
+            coins.add(resultItem(snapshot.data[i].name, snapshot.data[i].value, snapshot.data[i].change));
           }
           return Column(children:coins);
         }

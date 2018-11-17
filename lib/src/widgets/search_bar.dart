@@ -17,11 +17,11 @@ class _SearchBarState extends State<SearchBar> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(15.0),
-      margin: EdgeInsets.only(top:25.0,left: 25.0,right: 25.0),
+     // margin: EdgeInsets.only(top:25.0,left: 25.0,right: 25.0),
       height: MediaQuery.of(context).size.height/4.5,
       decoration:BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(10.0))
+        //borderRadius: BorderRadius.all(Radius.circular(10.0))
       ) ,
       child:Column(
         children: <Widget>[
@@ -34,6 +34,7 @@ class _SearchBarState extends State<SearchBar> {
               stream: bloc.amount,
               builder:(BuildContext context,AsyncSnapshot snapshot){
                 return TextField(
+      
                   onChanged: bloc.changeAmount,
                   keyboardType: TextInputType.number,
                   style: TextStyle(
@@ -43,6 +44,11 @@ class _SearchBarState extends State<SearchBar> {
                     color: Colors.blueGrey
                   ),
                   decoration: InputDecoration(
+                    prefixText: 'USD ',
+                    prefixStyle: TextStyle(
+                      color:Colors.green,
+                      fontSize: 10.0
+                    ),
                     hintStyle: TextStyle(
                       color:Colors.black
                     ) ,

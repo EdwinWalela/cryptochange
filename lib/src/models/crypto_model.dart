@@ -1,7 +1,6 @@
 class Crypto{
   String name;
-  double percentage,value;
-  String logoUrl;
+  double change,value;
   
-  Crypto.fromJson(this.name,this.value,this.percentage,this.logoUrl);
+  Crypto.fromJson(this.name,this.value,this.change);
 }

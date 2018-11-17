@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
 import './screens/home.dart';
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return MaterialApp(
       theme: ThemeData.dark(),
-      title: 'Crypto Converter',
+      title: 'Crypto Change',
       home:Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
